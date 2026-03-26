@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projekte von EXACT.PLAN GmbH – Büroausbau, Wohnhäuser, Denkmalsanierung, Gewerbebau in Wiesbaden und Frankfurt." />
+  <title>Projekte – EXACT.PLAN</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/logo/logo.png" />
+  <style>
+    /* ── Filter bar ──────────────────────────────────────── */
+    .filter-bar {
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--white);
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 100;
+    }
+    .filter-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      padding: 18px 22px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .filter-btn:hover { color: var(--dark); }
+    .filter-btn.active { color: var(--dark); border-bottom-color: var(--orange); }
+
+    /* project card hidden state */
+    .proj-card.hidden { display: none; }
+
+    /* category section heading */
+    .cat-heading {
+      padding: clamp(44px,5vw,72px) 0 0;
+      margin-bottom: clamp(24px,3vw,40px);
+    }
+    .cat-heading h2 {
+      font-family: var(--font);
+      font-weight: 300;
+      font-size: clamp(1.8rem,3vw,3rem);
+      color: var(--dark);
+      letter-spacing: 0.01em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────── -->
+  <nav id="nav" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="logo-white" src="images/logo/logo-white.png" alt="EXACT.PLAN" />
+        <img class="logo-dark"  src="images/logo/logo.png"       alt="EXACT.PLAN" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="projekte.html" class="active">Projekte</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="ueber-uns.html">Über Uns</a></li>
+      </ul>
+      <a href="kontakt.html" class="nav-cta">Kontakt</a>
+      <button class="hamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="index.html">Startseite</a>
+    <a href="projekte.html">Projekte</a>
+    <a href="leistungen.html">Leistungen</a>
+    <a href="ueber-uns.html">Über Uns</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+
+  <div style="height:var(--nav-h);"></div>
+
+  <!-- ── Page Heading ───────────────────────────────────── -->
+  <section style="background:#ffffff;padding:clamp(52px,7vw,96px) 0 clamp(40px,5vw,68px);">
+    <div class="container">
+      <p class="overline reveal">Ausgewählte Referenzen</p>
+      <span class="gold-line reveal"></span>
+      <h1 style="font-family:var(--font);font-weight:300;font-size:clamp(2.4rem,5.5vw,5.5rem);color:var(--dark);line-height:1.06;letter-spacing:0.01em;" class="reveal">
+        Projekte
+      </h1>
+      <p style="font-family:var(--font);font-weight:300;font-size:1rem;color:var(--gray-600);max-width:500px;line-height:1.85;margin-top:16px;" class="reveal reveal-delay-1">
+        Büroausbau, Wohnhäuser, Denkmalsanierung und Gewerbebau – realisiert mit Präzision und gestalterischem Anspruch.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Filter bar ─────────────────────────────────────── -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all">Alle</button>
+      <button class="filter-btn" data-filter="buero">Büroausbau</button>
+      <button class="filter-btn" data-filter="wohnen">Wohnen</button>
+      <button class="filter-btn" data-filter="denkmal">Denkmal & Sanierung</button>
+      <button class="filter-btn" data-filter="neubau">Neubau</button>
+    </div>
+  </div>
+
+  <!-- ── Projects Grid ──────────────────────────────────── -->
+  <section style="background:var(--white); padding-top:clamp(40px,5vw,72px); padding-bottom:clamp(60px,8vw,120px);">
+    <div class="container">
+
+      <div class="proj-grid proj-grid-wix" id="projGrid">
+
+        <!-- BÜROAUSBAU -->
+        <a href="projekt-detail.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="images/projects/zumtobel/01.jpg" alt="Büroausbau Zumtobel Group" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Büroausbau · Frankfurt am Main · 2015</p>
+            <h3>Zumtobel Group<br />Carl-Benz-Straße</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-1" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="images/projects/zumtobel/showroom01.jpg" alt="Showroom Zumtobel" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Showroom · Frankfurt am Main · 2015</p>
+            <h3>Zumtobel Group<br />Showroom EG</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-2" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="images/projects/albansgasse/01.jpg" alt="Umbau Scheune Albansgasse" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau & Sanierung · Wiesbaden</p>
+            <h3>Albansgasse<br />Scheune zum Wohnhaus</h3>
+          </div>
+        </a>
+
+        <!-- WOHNEN -->
+        <a href="projekt-detail.html" class="proj-card reveal" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="images/projects/penthouse/01.jpg" alt="Umbau Penthouse Beethovenstraße" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau Penthouse · Wiesbaden</p>
+            <h3>Beethovenstraße<br />Penthouse</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-1" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="images/projects/langen/01.jpg" alt="Innenausbau Wohnhaus Langen" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Innenausbau Wohnhaus · Langen</p>
+            <h3>Langen<br />Innenausbau Wohnhaus</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-2" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="images/projects/langen/02.jpg" alt="Innenausbau Wohnhaus Langen Detail" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Innenausbau · Langen</p>
+            <h3>Langen<br />Wohnhaus Detail</h3>
+          </div>
+        </a>
+
+        <!-- DENKMAL & SANIERUNG -->
+        <a href="projekt-detail.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="images/projects/villa-graeger/01.jpg" alt="Graeger Villa Denkmalsanierung" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Denkmalsanierung · Wiesbaden</p>
+            <h3>Graeger Villa<br />Frankfurter Straße</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-1" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="images/projects/villa-graeger/02.jpg" alt="Graeger Villa" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Denkmalsanierung · Wiesbaden</p>
+            <h3>Graeger Villa<br />Gartenseite</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-2" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="images/projects/gut-grasbeck/01.jpg" alt="Gut Grasbeck" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung · Gut Grasbeck</p>
+            <h3>Gut Grasbeck<br />Südansicht</h3>
+          </div>
+        </a>
+
+        <!-- NEUBAU -->
+        <a href="projekt-detail.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="images/projects/klagenfurter-ring/01.jpg" alt="Neubau Doppelwohnhaus Klagenfurter Ring" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau Doppelwohnhaus · Wiesbaden</p>
+            <h3>Klagenfurter Ring<br />Gartenansicht</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-1" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="images/projects/klagenfurter-ring/02.jpg" alt="Klagenfurter Ring Straße" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau Doppelwohnhaus · Wiesbaden</p>
+            <h3>Klagenfurter Ring<br />Straßenansicht</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-2" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="images/projects/kureck-villa/01.jpg" alt="Kureck 3E Villa" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau MFH mit Tiefgarage · Wiesbaden</p>
+            <h3>Kureck 3E<br />Villa</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="images/projects/westend/01.jpg" alt="Westend Frankfurt" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau MFH · Frankfurt Westend</p>
+            <h3>Friedrichstraße 39<br />Frankfurt Westend</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-1" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="images/projects/westend/02.jpg" alt="Westend Frankfurt 2" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau MFH · Frankfurt Westend</p>
+            <h3>Friedrichstraße 39<br />Westend Ansicht</h3>
+          </div>
+        </a>
+
+        <a href="projekt-detail.html" class="proj-card reveal reveal-delay-2" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="images/projects/albansgasse/02.jpg" alt="Albansgasse Umbau" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau & Sanierung · Wiesbaden</p>
+            <h3>Albansgasse<br />Außenansicht</h3>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────── -->
+  <section class="cta-band">
+    <div class="container">
+      <p class="overline reveal" style="color:var(--gold-light);margin-bottom:12px;">Ihr Projekt</p>
+      <h2 class="reveal">Ihr nächstes Projekt –<br />wir begleiten Sie.</h2>
+      <p class="reveal reveal-delay-1">Ob Neubau, Umbau oder Sanierung – kontaktieren Sie uns für ein unverbindliches Erstgespräch.</p>
+      <div class="cta-actions reveal reveal-delay-2">
+        <a href="kontakt.html" class="btn btn-outline-white">
+          Kontakt aufnehmen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+        <a href="leistungen.html" class="btn btn-gold">Leistungen ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/logo/logo-white.png" alt="EXACT.PLAN" />
+          <p>Architektur & Ingenieurbau aus Wiesbaden – Präzision, Qualität und gestalterischer Anspruch seit 2014.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Seiten</h4>
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="projekte.html">Projekte</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über Uns</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="leistungen.html">Architektenleistung HOAI</a></li>
+            <li><a href="leistungen.html">Tragwerksplanung</a></li>
+            <li><a href="leistungen.html">Innenausbau</a></li>
+            <li><a href="leistungen.html">Sanierung & Denkmal</a></li>
+            <li><a href="leistungen.html">Projektentwicklung</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <address>
+            EXACT.PLAN GmbH & Co. KG<br />
+            Nordenstadter Straße 38<br />
+            65207 Wiesbaden<br /><br />
+            <a href="tel:+4961123866411">0611 – 238 66 411</a><br />
+            <a href="mailto:info@exact-plan.de">info@exact-plan.de</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 EXACT.PLAN GmbH & Co. KG. Alle Rechte vorbehalten.</p>
+        <nav class="footer-legal">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Category filter ──────────────────────────────────── */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.proj-card').forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

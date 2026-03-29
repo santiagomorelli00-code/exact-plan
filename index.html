@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ARCHITEKTUR &amp; INGENIEURBAU · WIESBADEN. Wir planen, was bleibt. EXACT.PLAN realisiert Ihr Bauvorhaben – von der ersten Idee &uuml;ber die Planung bis zur schl&uuml;sselfertigen Umsetzung." />
+  <title>EXACT.PLAN – Architektur & Ingenieurbau</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/logo/logo.png" />
+  <style>
+    /* ── Home facts strip ──────────────────────────────────── */
+    .home-facts-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--white);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .home-fact {
+      padding: clamp(14px,2vw,22px) clamp(14px,2vw,28px);
+      text-align: center;
+      border-right: 1px solid var(--gray-200);
+    }
+    .home-fact:last-child { border-right: none; }
+    .home-fact-num {
+      display: block;
+      font-family: var(--font);
+      font-weight: var(--fw-light);
+      font-size: clamp(1.3rem,2.2vw,2.2rem);
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+    .home-fact-sup {
+      font-size: 0.5em;
+      vertical-align: super;
+      color: var(--orange);
+    }
+    .home-fact-label {
+      display: block;
+      font-family: var(--font);
+      font-weight: var(--fw-medium);
+      font-size: 0.54rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+    @media (max-width: 600px) {
+      .home-facts-strip { grid-template-columns: 1fr 1fr; }
+      .home-fact:nth-child(2) { border-right: none; }
+    }
+  </style>
+</head>
+<body class="is-home">
+
+  <!-- ── Navigation ─────────────────────────────────────── -->
+  <nav id="nav" class="nav-transparent">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="logo-white" src="images/logo/logo-white.png" alt="EXACT.PLAN" />
+        <img class="logo-dark"  src="images/logo/logo.png"       alt="EXACT.PLAN" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Startseite</a></li>
+        <li><a href="projekte.html">Projekte</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="ueber-uns.html">Über Uns</a></li>
+      </ul>
+      <a href="kontakt.html" class="nav-cta">Kontakt</a>
+      <button class="hamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="index.html">Startseite</a>
+    <a href="projekte.html">Projekte</a>
+    <a href="leistungen.html">Leistungen</a>
+    <a href="ueber-uns.html">Über Uns</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       1 — HERO SLIDESHOW
+  ═══════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active">
+        <video autoplay muted playsinline>
+          <source src="hero/video1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-slide">
+        <video muted playsinline>
+          <source src="hero/video2.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-slide">
+        <video muted playsinline>
+          <source src="hero/video3.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-slide">
+        <video muted playsinline>
+          <source src="hero/video4.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-slide">
+        <video muted playsinline>
+          <source src="hero/video5.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-top-logo">
+      <img src="images/logo/logo-white.png" alt="EXACT.PLAN" />
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-label">Architektur & Ingenieurbau · Wiesbaden</p>
+      <h1 class="hero-title">Wir planen,<br />was bleibt.</h1>
+      <p class="hero-sub">
+        EXACT.PLAN realisiert Ihr Bauvorhaben – von der ersten Idee<br />
+        über die Planung bis zur schlüsselfertigen Umsetzung.
+      </p>
+      <div class="hero-actions">
+        <a href="projekte.html" class="btn btn-outline-white">
+          Projekte ansehen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+        <a href="kontakt.html" class="btn btn-gold">Kontakt aufnehmen</a>
+      </div>
+    </div>
+
+    <div class="hero-dots">
+      <span class="hero-dot active"></span>
+      <span class="hero-dot"></span>
+      <span class="hero-dot"></span>
+      <span class="hero-dot"></span>
+      <span class="hero-dot"></span>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- key facts strip — sits between hero and about image section -->
+  <div class="home-facts-strip">
+    <div class="home-fact reveal reveal-delay-1">
+      <span class="home-fact-num">2014</span>
+      <span class="home-fact-label">Gegründet in Wiesbaden</span>
+    </div>
+    <div class="home-fact reveal reveal-delay-2">
+      <span class="home-fact-num">150<span class="home-fact-sup">+</span></span>
+      <span class="home-fact-label">Realisierte Projekte</span>
+    </div>
+    <div class="home-fact reveal reveal-delay-3">
+      <span class="home-fact-num">3</span>
+      <span class="home-fact-label">Gründungspartner</span>
+    </div>
+    <div class="home-fact reveal reveal-delay-4">
+      <span class="home-fact-num">9</span>
+      <span class="home-fact-label">HOAI Leistungsphasen</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       2 — ÜBER UNS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="home-about">
+    <div class="home-about-img reveal-left">
+      <img src="images/about/buero.jpg" alt="EXACT.PLAN Büro – Alte Ziegelei Wiesbaden-Igstadt" loading="lazy" />
+    </div>
+    <div class="home-about-text reveal-right">
+      <p class="label">Über uns</p>
+      <span class="gold-line"></span>
+      <h2>Architekten &amp; Ingenieure<br />seit 2014 gemeinsam</h2>
+      <p>
+        Wir sind ein Team aus Architekten und Ingenieuren mit langjähriger Erfahrung in der Planung und Realisierung unterschiedlichster Bauvorhaben.
+      </p>
+      <p>
+        Aus ursprünglich einzelnen freischaffenden Büros entstand 2014 die EXACT.PLAN GmbH &amp; Co. KG. Unser Büro in Wiesbaden-Igstadt liegt verkehrsgünstig an der A66 zwischen Wiesbaden und Frankfurt.
+      </p>
+      <a href="ueber-uns.html" class="btn btn-dark" style="margin-top:12px;">
+        Mehr über uns
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       3 — LEISTUNGEN
+  ═══════════════════════════════════════════════════════ -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="sec-head reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:clamp(36px,4vw,56px);">
+        <div>
+          <p class="overline">Was wir anbieten</p>
+          <span class="gold-line"></span>
+          <h2>Unsere Leistungen</h2>
+        </div>
+        <a href="leistungen.html" class="see-all">
+          Alle Leistungen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+
+      <div class="home-leistungen">
+
+        <div class="home-leistung-card reveal reveal-delay-1">
+          <div class="leistung-num">01</div>
+          <h3>Architektenleistung</h3>
+          <p>Vollständige Architektenleistung nach HOAI Leistungsphasen 1–9 – vom ersten Entwurf bis zur Objektbetreuung.</p>
+          <a href="leistungen.html" class="arrow-link">
+            Mehr erfahren
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+
+        <div class="home-leistung-card reveal reveal-delay-2">
+          <div class="leistung-num">02</div>
+          <h3>Hoch- & Innenausbau</h3>
+          <p>Planung von Neubau-, Umbau- und Innenausbauprojekten im Wohn- und Gewerbebau.</p>
+          <a href="leistungen.html" class="arrow-link">
+            Mehr erfahren
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+
+        <div class="home-leistung-card reveal reveal-delay-3">
+          <div class="leistung-num">03</div>
+          <h3>Sanierung &amp; Denkmalschutz</h3>
+          <p>Bestandsaufnahmen und Planung von Sanierungen – auch für denkmalgeschützte Objekte.</p>
+          <a href="leistungen.html" class="arrow-link">
+            Mehr erfahren
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+
+        <div class="home-leistung-card reveal reveal-delay-1">
+          <div class="leistung-num">04</div>
+          <h3>B&uuml;rofl&auml;chenplanung</h3>
+          <p>B&uuml;rofl&auml;chen- und Belegungsplanung f&uuml;r moderne B&uuml;ro- &amp; Arbeitsraumkonzepte.</p>
+          <a href="leistungen.html" class="arrow-link">
+            Mehr erfahren
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+
+        <div class="home-leistung-card reveal reveal-delay-2">
+          <div class="leistung-num">05</div>
+          <h3>Projektentwicklung</h3>
+          <p>Beratung vor Planungsbeginn und erstellen erster Konzeptstudien zur Entwicklung von Liegenschaften.</p>
+          <a href="leistungen.html" class="arrow-link">
+            Mehr erfahren
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+
+        <div class="home-leistung-card reveal reveal-delay-3">
+          <div class="leistung-num">06</div>
+          <h3>Consulting</h3>
+          <p>Allgemeine Beratungsleistung rund um die Geb&auml;udeplanung, Entwicklung von Liegenschaften sowie Bauen im Bestand mit energetischer Sanierung und Denkmalschutz.</p>
+          <a href="leistungen.html" class="arrow-link">
+            Mehr erfahren
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       4 — PROJEKTE
+  ═══════════════════════════════════════════════════════ -->
+  <section class="section" style="background:var(--white); padding-bottom:clamp(60px,8vw,110px);">
+    <div class="container">
+      <div class="sec-head reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div>
+          <p class="overline">Ausgewählte Referenzen</p>
+          <span class="gold-line"></span>
+          <h2>Unsere Projekte</h2>
+        </div>
+        <a href="projekte.html" class="see-all">
+          Alle Projekte
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 12-col feature grid -->
+    <div class="home-projects reveal" style="margin-top:40px;">
+      <a href="projekt-detail.html" class="home-proj hp-large">
+        <img src="images/projects/zumtobel/01.jpg" alt="Büroausbau Zumtobel Group" loading="lazy" />
+        <div class="home-proj-overlay"></div>
+        <div class="home-proj-info">
+          <p class="label">Büroausbau · Frankfurt am Main</p>
+          <h3>Zumtobel Group – Carl-Benz-Straße</h3>
+        </div>
+      </a>
+      <a href="projekt-detail.html" class="home-proj hp-medium">
+        <img src="images/projects/penthouse/01.jpg" alt="Umbau Penthouse" loading="lazy" />
+        <div class="home-proj-overlay"></div>
+        <div class="home-proj-info">
+          <p class="label">Umbau Penthouse</p>
+          <h3>Beethovenstraße</h3>
+        </div>
+      </a>
+      <a href="projekt-detail.html" class="home-proj hp-medium">
+        <img src="images/projects/villa-graeger/01.jpg" alt="Graeger Villa" loading="lazy" />
+        <div class="home-proj-overlay"></div>
+        <div class="home-proj-info">
+          <p class="label">Denkmalsanierung</p>
+          <h3>Graeger Villa</h3>
+        </div>
+      </a>
+      <a href="projekt-detail.html" class="home-proj hp-small">
+        <img src="images/projects/klagenfurter-ring/01.jpg" alt="Klagenfurter Ring" loading="lazy" />
+        <div class="home-proj-overlay"></div>
+        <div class="home-proj-info">
+          <p class="label">Neubau</p>
+          <h3>Klagenfurter Ring</h3>
+        </div>
+      </a>
+      <a href="projekt-detail.html" class="home-proj hp-small">
+        <img src="images/projects/kureck-villa/01.jpg" alt="Kureck Villa" loading="lazy" />
+        <div class="home-proj-overlay"></div>
+        <div class="home-proj-info">
+          <p class="label">Neubau MFH</p>
+          <h3>Kureck 3E</h3>
+        </div>
+      </a>
+      <a href="projekt-detail.html" class="home-proj hp-small">
+        <img src="images/projects/langen/01.jpg" alt="Innenausbau Langen" loading="lazy" />
+        <div class="home-proj-overlay"></div>
+        <div class="home-proj-info">
+          <p class="label">Innenausbau</p>
+          <h3>Langen</h3>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       5 — CTA
+  ═══════════════════════════════════════════════════════ -->
+  <section class="cta-band">
+    <div class="container">
+      <p class="overline reveal" style="color:var(--gold-light);margin-bottom:12px;">Ihr Vorhaben</p>
+      <h2 class="reveal">Bereit, Ihr Projekt<br />zu verwirklichen?</h2>
+      <p class="reveal reveal-delay-1">Wir begleiten Ihr Bauvorhaben von der Idee bis zur Schlüsselübergabe – verlässlich, präzise und mit gestalterischem Anspruch.</p>
+      <div class="cta-actions reveal reveal-delay-2">
+        <a href="kontakt.html" class="btn btn-outline-white">
+          Jetzt anfragen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+        <a href="leistungen.html" class="btn btn-gold">Leistungen ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       6 — FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/logo/logo-white.png" alt="EXACT.PLAN" />
+          <p>Architektur & Ingenieurbau aus Wiesbaden – Präzision, Qualität und gestalterischer Anspruch seit 2014.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Seiten</h4>
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="projekte.html">Projekte</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über Uns</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="leistungen.html">Architektenleistung HOAI</a></li>
+            <li><a href="leistungen.html">Hoch- &amp; Innenausbau</a></li>
+            <li><a href="leistungen.html">Tragwerksplanung &amp; Nachweise</a></li>
+            <li><a href="leistungen.html">Sanierung &amp; Denkmalschutz</a></li>
+            <li><a href="leistungen.html">Projektentwicklung</a></li>
+            <li><a href="leistungen.html">Büroflächenplanung</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <address>
+            EXACT.PLAN GmbH & Co. KG<br />
+            Nordenstadter Straße 38<br />
+            65207 Wiesbaden<br /><br />
+            <a href="tel:+4961123866411">0611 – 238 66 411</a><br />
+            <a href="mailto:info@exact-plan.de">info@exact-plan.de</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 EXACT.PLAN GmbH & Co. KG. Alle Rechte vorbehalten.</p>
+        <nav class="footer-legal">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

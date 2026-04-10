@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projekte von EXACT.PLAN GmbH – Büroausbau, Wohnhäuser, Denkmalsanierung, Gewerbebau in Wiesbaden und Frankfurt." />
+  <title>Projekte – EXACT.PLAN</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/logo/logo.png" />
+  <style>
+    /* ── Filter bar ──────────────────────────────────────── */
+    .filter-bar {
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--white);
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 100;
+    }
+    .filter-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      padding: 18px 22px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .filter-btn:hover { color: var(--dark); }
+    .filter-btn.active { color: var(--dark); border-bottom-color: var(--orange); }
+
+    /* project card hidden state */
+    .proj-card.hidden { display: none; }
+
+    /* category section heading */
+    .cat-heading {
+      padding: clamp(44px,5vw,72px) 0 0;
+      margin-bottom: clamp(24px,3vw,40px);
+    }
+    .cat-heading h2 {
+      font-family: var(--font);
+      font-weight: 300;
+      font-size: clamp(1.8rem,3vw,3rem);
+      color: var(--dark);
+      letter-spacing: 0.01em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────── -->
+  <nav id="nav" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="logo-white" src="images/logo/logo-white.png" alt="EXACT.PLAN" />
+        <img class="logo-dark"  src="images/logo/logo.png"       alt="EXACT.PLAN" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="projekte.html" class="active">Projekte</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="ueber-uns.html">Über Uns</a></li>
+      </ul>
+      <a href="kontakt.html" class="nav-cta">Kontakt</a>
+      <button class="hamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="index.html">Startseite</a>
+    <a href="projekte.html">Projekte</a>
+    <a href="leistungen.html">Leistungen</a>
+    <a href="ueber-uns.html">Über Uns</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+
+  <div style="height:var(--nav-h);"></div>
+
+  <!-- ── Page Heading ───────────────────────────────────── -->
+  <section style="background:#ffffff;padding:clamp(52px,7vw,96px) 0 clamp(40px,5vw,68px);">
+    <div class="container">
+      <p class="overline reveal">Ausgewählte Referenzen</p>
+      <span class="gold-line reveal"></span>
+      <h1 style="font-family:var(--font);font-weight:300;font-size:clamp(2.4rem,5.5vw,5.5rem);color:var(--dark);line-height:1.06;letter-spacing:0.01em;" class="reveal">
+        Projekte
+      </h1>
+      <p style="font-family:var(--font);font-weight:300;font-size:1rem;color:var(--gray-600);max-width:500px;line-height:1.85;margin-top:16px;" class="reveal reveal-delay-1">
+        Büroausbau, Wohnhäuser, Denkmalsanierung und Gewerbebau – realisiert mit Präzision und gestalterischem Anspruch.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Filter bar ─────────────────────────────────────── -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all">Alle</button>
+      <button class="filter-btn" data-filter="buero">Büroausbau</button>
+      <button class="filter-btn" data-filter="wohnen">Wohnen</button>
+      <button class="filter-btn" data-filter="denkmal">Denkmal & Sanierung</button>
+      <button class="filter-btn" data-filter="neubau">Neubau</button>
+    </div>
+  </div>
+
+  <!-- ── Projects Grid ──────────────────────────────────── -->
+  <section style="background:var(--white); padding-top:clamp(40px,5vw,72px); padding-bottom:clamp(60px,8vw,120px);">
+    <div class="container">
+
+      <div class="proj-grid proj-grid-wix" id="projGrid">
+        <a href="projekt-rhein-leben.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Untere_Roppelsgasse/Roppelsgasse_1_400x267.jpg" alt="RHEIN LEBEN" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau von drei Reihen- &amp; einem Doppelwohnhaus</p>
+            <h3>RHEIN LEBEN</h3>
+          </div>
+        </a>
+
+        <a href="projekt-denkmalsanierung-ml16.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Mainlust_16/IMG_3758_400x660.jpeg" alt="DENKMALSANIERUNG ML16" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung eines denkmalgesch&uuml;tzten Mehrfamilienwohnhaus</p>
+            <h3>DENKMALSANIERUNG ML16</h3>
+          </div>
+        </a>
+
+        <a href="projekt-denkmalsanierung-whs1.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Villa_Neher/IMG_5280_400x416.JPG" alt="DENKMALSANIERUNG WHS1" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung eines denkmalgesch&uuml;tzten B&uuml;rogeb&auml;ude</p>
+            <h3>DENKMALSANIERUNG WHS1</h3>
+          </div>
+        </a>
+
+        <a href="projekt-denkmalsanierung-hs29.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/HS29/Kuechenbereich_400x283.jpg?1775814937747" alt="DENKMALSANIERUNG HS29" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung des Erdgeschosses eines historischen Mehrfamilienwohnhaus</p>
+            <h3>DENKMALSANIERUNG HS29</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-villa-bredde.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Villa_Bredde/Villa_Bredde_1_400x267.jpg" alt="NEUBAU VILLA BREDDE" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau einer Villa mit zwei Wohneinheiten</p>
+            <h3>NEUBAU VILLA BREDDE</h3>
+          </div>
+        </a>
+
+        <a href="projekt-denkmalsanierung-f59.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/F59/00-02-Aussen_400x533.jpeg" alt="DENKMALSANIERUNG F59" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung eines denkmalgesch&uuml;tzten Wohnhauses</p>
+            <h3>DENKMALSANIERUNG F59</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-sh23.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Stein/IMG_5160_2_400x283.jpg?1775814937747" alt="NEUBAU SH23" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Mehrfamilienwohnhaus mit Tiefgarage</p>
+            <h3>NEUBAU SH23</h3>
+          </div>
+        </a>
+
+        <a href="projekt-autohaus-haese-showroom-volvo.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Volvo-Dotzheim/BW_MW20220430_32546-HDR_400x267.jpg" alt="SHOWROOM VOLVO" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau eines Showrooms f&uuml;r Neuwagenpr&auml;sentation</p>
+            <h3>SHOWROOM VOLVO</h3>
+          </div>
+        </a>
+
+        <a href="projekt-autohaus-haese-nissan.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Nissan_Autohaus_Haese/BW_MW20210630_26485_400x267.jpg" alt="SHOWROOM NISSAN" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau eines Showrooms f&uuml;r Neuwagenpr&auml;sentation</p>
+            <h3>SHOWROOM NISSAN</h3>
+          </div>
+        </a>
+
+        <a href="projekt-umbau-vinothek.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Weingut_Bickelmeier/vinothek03_400x400.jpg?1775814937747" alt="UMBAU VINOTHEK" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau mit Umnutzung eines Nebengeb&auml;udes zur Vinothek</p>
+            <h3>UMBAU VINOTHEK</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-saunahaus.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Saunahaus_Bingen/Saunahaus_5_400x267.jpg" alt="NEUBAU SAUNAHAUS" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Saunahauses mit Carport und Au&szlig;enpool</p>
+            <h3>NEUBAU SAUNAHAUS</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-whs65.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Wilhelmshoeher_Str._FFm/Haus_1.1_400x265.jpg" alt="NEUBAU WHS65" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau einer Mehrfamilienwohnanlage mit Tiefgarage</p>
+            <h3>NEUBAU WHS65</h3>
+          </div>
+        </a>
+
+        <a href="projekt-altbausanierung-hs170.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/HS170/IMG_0440_400x300.jpeg?1775814937747" alt="ALTBAUSANIERUNG HS170" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung eines historischen Wohnhauses mit zwei Wohneinheiten</p>
+            <h3>ALTBAUSANIERUNG HS170</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-hb33.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Haus_Oppmann/O1_400x258.jpg" alt="NEUBAU HB33" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienwohnhauses mit Einliegerwohnung</p>
+            <h3>NEUBAU HB33</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-gb8.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Haus_Dinkelacker/1_400x266.jpeg" alt="NEUBAU GB8" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienwohnhauses mit Garage und Pool</p>
+            <h3>NEUBAU GB8</h3>
+          </div>
+        </a>
+
+        <a href="projekt-aufstockung-nt10.html" class="proj-card reveal" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/aufstockung-neutorstrasse/1_400x275.png?1775814937747" alt="AUFSTOCKUNG NT10" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Aufstockung eines bestehenden Hinterhauses in der Mainzer Innenstadt</p>
+            <h3>AUFSTOCKUNG NT10</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-f39.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/F39/01_400x289.jpg" alt="NEUBAU F39" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Mehrfamilienwohnhaus mit Tiefgarage</p>
+            <h3>NEUBAU F39</h3>
+          </div>
+        </a>
+
+        <a href="projekt-wohnquartier-weingarten.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Hallgarten/Hallgarten02_400x600.jpg" alt="WOHNQUARTIER WEINGARTEN" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau von vier Mehrfamilienwohnh&auml;usern mit Tiefgarage</p>
+            <h3>WOHNQUARTIER WEINGARTEN</h3>
+          </div>
+        </a>
+
+        <a href="projekt-eltviller-stadtmauer.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/pelzer/PHOTO-2021-09-08-20-26-57_400x300.jpg?1775814937748" alt="DENKMALSANIERUNG ELTVILLER STADTMAUER" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung eines denkmalgesch&uuml;tzten Stadthaus mit einbindender Stadtmauer</p>
+            <h3>DENKMALSANIERUNG ELTVILLER STADTMAUER</h3>
+          </div>
+        </a>
+
+        <a href="projekt-klagenfurter-ring.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/doppelhaus-klagenfurter-ring/Seitenansicht_400x283.jpg" alt="NEUBAU KR2" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Doppelwohnhauses</p>
+            <h3>NEUBAU KR2</h3>
+          </div>
+        </a>
+
+        <a href="projekt-aufstockung-ws9.html" class="proj-card reveal" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Haus_SP/Haus_SP01_400x258.JPG" alt="AUFSTOCKUNG WS9" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Aufstockung eines Bestehenden Wohnhauses</p>
+            <h3>AUFSTOCKUNG WS9</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-aw10.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Asternweg_10/2017_Asternweg_Wiesbaden_02_400x527.jpg?1775814937748" alt="NEUBAU AW10" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienhauses</p>
+            <h3>NEUBAU AW10</h3>
+          </div>
+        </a>
+
+        <a href="projekt-autohaus-haese-showroom-volvo-2019.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/autohaus-hease-gmbh/BW_MW20200122_13407-HDR_400x267.jpg" alt="SHOWROOM VOLVO" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau eines Showrooms f&uuml;r Neuwagenpr&auml;sentation</p>
+            <h3>SHOWROOM VOLVO</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-wjs9.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/weifert-janz-str/WJS-3_400x275.jpg" alt="NEUBAU WJS 9" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Mehrfamilienwohnhaus mit 12 Mietwohnungen</p>
+            <h3>NEUBAU WJS 9</h3>
+          </div>
+        </a>
+
+        <a href="projekt-ausbau-bs3.html" class="proj-card reveal" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Beethovens/B1_400x267.jpg?1775814937748" alt="AUSBAU BS3" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Ausbau einer zweigeschossigen Penthousewohnung</p>
+            <h3>AUSBAU BS3</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-bs83.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/BS83/BS83_02_400x267.jpg" alt="NEUBAU BS83" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau einer Mehrfamilienwohnanlage mit gemeinsamer Tiefgarage</p>
+            <h3>NEUBAU BS83</h3>
+          </div>
+        </a>
+
+        <a href="projekt-denkmalsanierung-sa49.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/SA49/SA01_400x283.jpg" alt="DENKMALSANIERUNG SA49" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Fassadensanierung an einem denkmalgesch&uuml;tzten Mehrfamilienwohnhaus</p>
+            <h3>DENKMALSANIERUNG SA49</h3>
+          </div>
+        </a>
+
+        <a href="projekt-scheunenumbau-ag3.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Haus-k/Alban1_400x273.jpg?1775814937748" alt="SCHEUNENUMBAU AG3" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau einer Scheune in ein Einfamilienwohnhaus</p>
+            <h3>SCHEUNENUMBAU AG3</h3>
+          </div>
+        </a>
+
+        <a href="projekt-kureck-3e-wiesbaden.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/kureck-3e/5_400x267.jpg" alt="KURECK 3E Wiesbaden" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Wohnhauses mit 12 Wohneinheiten und einer Tiefgarage</p>
+            <h3>KURECK 3E Wiesbaden</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-rb11.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Reingaubogen/RB01_400x267.jpg" alt="NEUNBAU RB11" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienwohnhauses</p>
+            <h3>NEUNBAU RB11</h3>
+          </div>
+        </a>
+
+        <a href="projekt-umbau-as68.html" class="proj-card reveal" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-j/IMG_1623_400x300.JPG?1775814937748" alt="UMBAU &amp; ERWEITERUNG AS68" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau und Erweiterung eines bestehenden Einfamilienwohnhauses</p>
+            <h3>UMBAU &amp; ERWEITERUNG AS68</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-ps14.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-n/PS1_400x576.jpg" alt="NEUBAU PS14" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Mehrfamilienwohnhaus mit 10 Wohnungen &amp; Tiefgarage</p>
+            <h3>NEUBAU PS14</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-glenroy.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-k/Glenroy_400x267.jpg" alt="NEUBAU Glenroy" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienwohnhauses mit Einliegerwohnung</p>
+            <h3>NEUBAU Glenroy</h3>
+          </div>
+        </a>
+
+        <a href="projekt-umbau-depot-rem.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/depot-museum/1_400x275.jpg?1775814937748" alt="UMBAU DEPOT Museum rem" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau einer bestehenden Lagerhalle zum Museumsdepot der rem Mannheim</p>
+            <h3>UMBAU DEPOT Museum rem</h3>
+          </div>
+        </a>
+
+        <a href="projekt-bueroausbau-50-avon.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/50-avon-ffm/1_400x275.jpg" alt="B&#220;ROAUSBAU 50 AVON" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau von B&uuml;rofl&auml;chen</p>
+            <h3>B&#220;ROAUSBAU 50 AVON</h3>
+          </div>
+        </a>
+
+        <a href="projekt-autohaus-haese-verkaufspavillon.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/autohaus-hease-gmbh/Pav01_400x267.jpg" alt="AUTOHAUS HAESE GmbH" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Verkaufspavillion mit Verkaufsfl&auml;che f&uuml;r PKWs</p>
+            <h3>AUTOHAUS HAESE GmbH</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-rb8.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-p-2/Haus-P_01_400x267.jpg?1775814937749" alt="NEUBAU RB8" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienwohnhauses mit integrierter Praxis f&uuml;r Physiotherapie</p>
+            <h3>NEUBAU RB8</h3>
+          </div>
+        </a>
+
+        <a href="projekt-showroom-zumtobel-group.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/zumtobel-group-showroom/1_400x275.jpg" alt="ZUMTOBEL GROUP Showroom" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Ausbau einer Showroomfl&auml;che f&uuml;r die Firma Zumtobel in Frankfurt am Main</p>
+            <h3>ZUMTOBEL GROUP Showroom</h3>
+          </div>
+        </a>
+
+        <a href="projekt-bueroausbau-zumtobel-group.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/zumtobel-group-office/6_400x275.jpg" alt="ZUMTOBEL GROUP Office" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Ausbau einer B&uuml;rofl&auml;che f&uuml;r die Firma Zumtobel in Frankfurt am Main</p>
+            <h3>ZUMTOBEL GROUP Office</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-clariant.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/Clariant/Clariant1_400x267.jpg?1775814937749" alt="NEUBAU Clariant" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Konzeptstudie f&uuml;r den Neubau eines B&uuml;rogeb&auml;udes</p>
+            <h3>NEUBAU Clariant</h3>
+          </div>
+        </a>
+
+        <a href="projekt-innenausbau-rs15.html" class="proj-card reveal" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-r-1/2_400x275.jpg" alt="INNENAUSBAU RS15" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Innenausbau eines bestehenden Wohnhauses</p>
+            <h3>INNENAUSBAU RS15</h3>
+          </div>
+        </a>
+
+        <a href="projekt-stefan-groepper-photography.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/fotoatelier-stefan-groepper/13_400x275.jpg" alt="FOTOATELIER Stefan Gr&#246;pper" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Innenausbau f&uuml;r das Fotoatelier von Stefan Gr&ouml;pper</p>
+            <h3>FOTOATELIER Stefan Gr&#246;pper</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-weidbachtal-1.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/weidbachtal-1/1_400x275.jpg?1775814937749" alt="NEUBAU Weidbachtal 1" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Mehrfamilienwohnhauses mit 24 Wohneinheiten</p>
+            <h3>NEUBAU Weidbachtal 1</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-weidbachtal-2.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/weidbachtal-2/1_400x303.jpg" alt="NEUBAU Weidbachtal 2" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Mehrfamilienwohnhauses mit 24 Wohneinheiten</p>
+            <h3>NEUBAU Weidbachtal 2</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-rg6a.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-s/Rosengarten04_400x267.jpg" alt="NEUBAU RG6a" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienhauses</p>
+            <h3>NEUBAU RG6a</h3>
+          </div>
+        </a>
+
+        <a href="projekt-scheunenumbau-af3.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/scheunenumbau/1_400x275.jpg?1775814937749" alt="SCHEUNENUMBAU AF3" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Umbau einer Scheune zum Mehrfamilienwohnhaus mit Tiefgarage</p>
+            <h3>SCHEUNENUMBAU AF3</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-villa-r.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/villa-r/2_400x275.jpg" alt="NEUBAU Villa R" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau einer Unternehmervilla</p>
+            <h3>NEUBAU Villa R</h3>
+          </div>
+        </a>
+
+        <a href="projekt-dachausbau-ks1.html" class="proj-card reveal" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-e/1_400x275.jpg" alt="Dachausbau KS1" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Innenausbau eines Denkmal gesch&uuml;tzten Fachwerkhauses</p>
+            <h3>Dachausbau KS1</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-os26.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-o/2_400x267.jpg?1775814937749" alt="NEUBAU OS26" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienwohnhauses</p>
+            <h3>NEUBAU OS26</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-af30.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/doppelhaus-t/AntonFlettner01_400x267.jpg" alt="NEUBAU AF30" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Doppelwohnhauses</p>
+            <h3>NEUBAU AF30</h3>
+          </div>
+        </a>
+
+        <a href="projekt-denkmalsanierung-graeger-villa.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/graeger-villa/1_400x275.jpg" alt="DENKMALSANIERUNG GRAEGER Villa" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung eines historischen Stadthauses &quot;GRAEGER Villa&quot;</p>
+            <h3>DENKMALSANIERUNG GRAEGER Villa</h3>
+          </div>
+        </a>
+
+        <a href="projekt-gastronomieausbau.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/gastronomieausbau/1_400x275.jpg?1775814937749" alt="Gastronomieausbau" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Ausbau eines Gew&ouml;lbekellers zur Gastronomiefl&auml;che</p>
+            <h3>Gastronomieausbau</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-iw10.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-b/Iltisweg2012_400x267.jpg" alt="NEUBAU IW10" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Mehrfamilienwohnhaus mit Tiefgarage</p>
+            <h3>NEUBAU IW10</h3>
+          </div>
+        </a>
+
+        <a href="projekt-sanierung-gut-grasbeck.html" class="proj-card reveal" data-cat="denkmal">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/gut-grasbeck/1_400x275.jpg" alt="SANIERUNG GUT GRASBECK" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Sanierung eines historischen Gutshof in Nordrhein-Westfalen</p>
+            <h3>SANIERUNG GUT GRASBECK</h3>
+          </div>
+        </a>
+
+        <a href="projekt-innenausbau-gs7.html" class="proj-card reveal" data-cat="wohnen">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-g-1/1_400x275.jpg?1775814937749" alt="INNENAUSBAU GS7" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Innenausbau eines Wohnhauses</p>
+            <h3>INNENAUSBAU GS7</h3>
+          </div>
+        </a>
+
+        <a href="projekt-bueroausbau-rs23.html" class="proj-card reveal" data-cat="buero">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/buero-f/B_Eltville_02_400x462.jpg" alt="B&#220;ROAUSBAU RS23" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Ausbau und Umgestaltung einer B&uuml;rofl&auml;che</p>
+            <h3>B&#220;ROAUSBAU RS23</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-ks17.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-r-2/H02_400x267.jpg" alt="NEUBAU KS17" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienwohnhauses</p>
+            <h3>NEUBAU KS17</h3>
+          </div>
+        </a>
+
+        <a href="projekt-neubau-ws14.html" class="proj-card reveal" data-cat="neubau">
+          <div class="proj-card-img">
+            <img src="http://www.exact-plan.de/images/thumbs/projekte/haus-w-2/H01_400x267.jpg?1775814937749" alt="NEUBAU WS14" loading="lazy" />
+          </div>
+          <div class="proj-card-overlay"></div>
+          <div class="proj-card-caption">
+            <p class="overline">Neubau eines Einfamilienwohnhauses</p>
+            <h3>NEUBAU WS14</h3>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────── -->
+  <section class="cta-band">
+    <div class="container">
+      <p class="overline reveal" style="color:var(--gold-light);margin-bottom:12px;">Ihr Projekt</p>
+      <h2 class="reveal">Ihr nächstes Projekt –<br />wir begleiten Sie.</h2>
+      <p class="reveal reveal-delay-1">Ob Neubau, Umbau oder Sanierung – kontaktieren Sie uns für ein unverbindliches Erstgespräch.</p>
+      <div class="cta-actions reveal reveal-delay-2">
+        <a href="kontakt.html" class="btn btn-outline-white">
+          Kontakt aufnehmen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+        </a>
+        <a href="leistungen.html" class="btn btn-gold">Leistungen ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/logo/logo-white.png" alt="EXACT.PLAN" />
+          <p>Architektur & Ingenieurbau aus Wiesbaden – Präzision, Qualität und gestalterischer Anspruch seit 2014.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Seiten</h4>
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="projekte.html">Projekte</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ueber-uns.html">Über Uns</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Leistungen</h4>
+          <ul>
+            <li><a href="leistungen.html">Architektenleistung HOAI</a></li>
+            <li><a href="leistungen.html">Hoch- &amp; Innenausbau</a></li>
+            <li><a href="leistungen.html">Tragwerksplanung &amp; Nachweise</a></li>
+            <li><a href="leistungen.html">Sanierung &amp; Denkmalschutz</a></li>
+            <li><a href="leistungen.html">Projektentwicklung</a></li>
+            <li><a href="leistungen.html">Büroflächenplanung</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <address>
+            EXACT.PLAN GmbH & Co. KG<br />
+            Nordenstadter Straße 38<br />
+            65207 Wiesbaden<br /><br />
+            <a href="tel:+4961123866411">0611 – 238 66 411</a><br />
+            <a href="mailto:info@exact-plan.de">info@exact-plan.de</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 EXACT.PLAN GmbH & Co. KG. Alle Rechte vorbehalten.</p>
+        <nav class="footer-legal">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Category filter ──────────────────────────────────── */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.proj-card').forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
